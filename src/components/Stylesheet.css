@@ -1,0 +1,17 @@
+.primary{
+    color: orange;
+    font-family: serif;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.font-xl
+{
+    margin-top: 80px;
+    font-size: 50px ;
+}
+.newscard
+{
+    box-shadow: 5px 5px 5px 5px gray;
+    
+}
