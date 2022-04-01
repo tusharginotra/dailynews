@@ -15,7 +15,7 @@ export default class App extends Component {
     return (
       <Router>
       <div>
-        <Navbar/>
+        <Navbar />
         
         <Routes>
         <Route exact path="/" element={<News key = "general" pageSize={6} country="in" category = 'general'/>}></Route>  
