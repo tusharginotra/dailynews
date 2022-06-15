@@ -77,7 +77,7 @@ export class News extends Component {
           {this.state.loading && <Spinner />}
           <div className="row" >
             {!this.state.loading && this.state.articles.map((element) => {
-              return <div className="col-md-4" key={element.url}>
+              return <div className="col-md-4 d-flex align-items-stretch" key={element.url}>
 
                 <NewsItem  title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage ? element.urlToImage : "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202203/Capture_2-647x363.png?9uP9rv33QPNTCpKpJphSBCPwauRu7uyI"} newsUrl={element.url}
                   author={element.author ? element.author : "DailyNews"} date={element.publishedAt} />
