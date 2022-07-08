@@ -16,18 +16,21 @@
     
 }
 
-.nav-link:hover{
+.nav-item:hover{
     background-color: rgb(43, 218, 215);
     color:black;
-    border-radius: 10%;
+    border-radius: 20px;
 }
-.nav-link:active{
+.nav-item{
+    border-radius: 20px;
+}
+/* .nav-link:active{
     background-color: green;
-}
+} */
 .navbar{
     background-color: teal;
 }
-.navbar-nav > .active > a {
+/* .navbar-nav > .active > a {
     color: aqua;
     background-color: chartreuse;    
-  }
+  } */

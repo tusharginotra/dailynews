@@ -24,7 +24,8 @@ export class News extends Component {
     this.state = {
       articles: [],
       loading: false,
-      page: 1
+      page: 1,
+      selected_cat :"",
     }
     document.title = `${this.capitaliseFirstLette(this.props.category)}-DailyNews`
   }
@@ -42,7 +43,24 @@ export class News extends Component {
   }
   async componentDidMount() {
     this.updateNews();
+    
+    if( window.localStorage.getItem("category"))
+    {
+      let category = window.localStorage.getItem("category")
+      document.getElementById(category).style.backgroundColor = '';
+      document.getElementById(this.props.category).style.backgroundColor = 'rgb(43, 218, 215)';
+      window.localStorage.setItem("category",this.props.category);
+
+    }
+    else
+    {
+      document.getElementById(this.props.category).style.backgroundColor = 'rgb(43, 218, 215)';
+      window.localStorage.setItem("category",this.props.category);
+    }
+
+
   }
+ 
   handleNextClick = async () => {
     // console.log('insidenextclick');
     if (this.state.page + 1 > Math.ceil(this.state.totalResults / `${this.props.pageSize}`)) {
@@ -73,7 +91,7 @@ export class News extends Component {
 
       return (
         <div className="container my-3">
-          <h2 className='text-center primary font-xl'>Daily News- Top Headlines from {this.capitaliseFirstLette(this.props.category)}</h2>
+          <h2 className='text-center primary font-xl'>Daily News- Top Headlines from <span >{this.capitaliseFirstLette(this.props.category)}</span> </h2>
           {this.state.loading && <Spinner />}
           <div className="row" >
             {!this.state.loading && this.state.articles.map((element) => {
@@ -85,7 +103,7 @@ export class News extends Component {
               </div>
             })}
           </div>
-          <div className=" container d-flex justify-content-between fixed-bottom">
+          <div className=" container d-flex justify-content-between fixed-bottom mb-5">
             <button disabled={this.state.page <= 1} type="button" className="btn btn-success" onClick={this.handlePreviousClick}> &larr; Previous</button>
             <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / `${this.props.pageSize}`)} type="button" className="btn btn-success" onClick={this.handleNextClick}>Next &rarr;</button>
           </div>

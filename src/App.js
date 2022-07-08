@@ -9,6 +9,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import Footer from './components/Footer';
 export default class App extends Component {
   
   render() {
@@ -27,7 +28,11 @@ export default class App extends Component {
         <Route exact path="/general" element={<News key = "general" pageSize={6} country="in" category = 'general'/>}></Route>
         <Route exact path="/business" element={<News key = "business" pageSize={6} country="in" category = 'business'/>}></Route>
         </Routes>
+
+        
       </div>
+      <Footer />
+      
       </Router>
     )
   }
