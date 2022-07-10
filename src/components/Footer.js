@@ -26,22 +26,14 @@ export default class Footer extends Component {
               ><i  className="fab fa-twitter"></i
             ></a>
       
-            {/* <!-- Google --> */}
-            <a
-              className="btn btn-primary btn-floating m-1"
-              style={{backgroundColor: "#dd4b39"}}
-              
-              href="#"
-              role="button"
-              ><i className="fab fa-google"></i
-            ></a>
+          
       
             {/* <!-- Instagram --> */}
             <a
               className="btn btn-primary btn-floating m-1"
               style={{backgroundColor: "#ac2bac"}}
-              
-              href="#"
+              target="_blank"
+              href="https://www.instagram.com/tushar_since_2000/"
               role="button"
               ><i className="fab fa-instagram"></i
             ></a>
@@ -50,8 +42,8 @@ export default class Footer extends Component {
             <a
               className="btn btn-primary btn-floating m-1"
               style={{backgroundColor: "#0082ca"}}
-              
-              href="#"
+              target="_blank"
+              href="https://www.linkedin.com/in/tushar-ginotra-885786197/"
               role="button"
               ><i className="fab fa-linkedin-in"></i
             ></a>
@@ -59,8 +51,8 @@ export default class Footer extends Component {
             <a
               className="btn btn-primary btn-floating m-1"
               style={{backgroundColor: "#333333"}}
-              
-              href="#"
+              target="_blank"
+              href="https://github.com/tusharginotra"
               role="button"
               ><i className="fab fa-github"></i
             ></a>
@@ -73,8 +65,8 @@ export default class Footer extends Component {
         <div className="text-center p-3" 
         style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}}
         >
-          © 2022 Copyright:
-          <a className="text-white" href="https://mdbootstrap.com/">Developed By Tushar :- NIT KURUKSHETRA</a>
+          © 2022 Copyright: <br></br>
+          <a className="text-white" target="_blank" href="https://www.linkedin.com/in/tushar-ginotra-885786197/">Developed By Tushar :- NIT KURUKSHETRA</a>
         </div>
         {/* <!-- Copyright --> */}
       </footer>
