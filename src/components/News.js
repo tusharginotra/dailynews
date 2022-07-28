@@ -25,24 +25,27 @@ export class News extends Component {
       articles: [],
       loading: false,
       page: 1,
-      selected_cat :"",
     }
     document.title = `${this.capitaliseFirstLette(this.props.category)}-DailyNews`
   }
   
-  async updateNews() {
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=46a8c67747104b7eb40f034fc05cf7b4&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+  async updateNews(val) {
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=46a8c67747104b7eb40f034fc05cf7b4&page=${this.state.page+val}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
+    
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
-      loading: false
+      loading: false,
+      
     });
+    
   }
   async componentDidMount() {
-    this.updateNews();
+   
+    this.updateNews(0);
     
     if( window.localStorage.getItem("category"))
     {
@@ -62,26 +65,28 @@ export class News extends Component {
   }
  
   handleNextClick = async () => {
-    // console.log('insidenextclick');
-    if (this.state.page + 1 > Math.ceil(this.state.totalResults / `${this.props.pageSize}`)) {
+   
+    if (this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)) {
 
     }
     else {
       this.setState({ page: this.state.page + 1 });
-      this.updateNews();
+      
+      this.updateNews(1);
 
     }
   }
 
 
     handlePreviousClick = async () => {
-      // console.log('insidepreviousclick');
+      
       if (this.state.page - 1 < 1) {
 
       }
       else {
         this.setState({ page: this.state.page - 1 });
-        this.updateNews();
+        
+        this.updateNews(-1);
 
       }
     }
@@ -95,7 +100,7 @@ export class News extends Component {
           {this.state.loading && <Spinner />}
           <div className="row" >
             {!this.state.loading && this.state.articles.map((element) => {
-              return <div className="col-md-4 d-flex align-items-stretch" key={element.url}>
+              return <div className="col-lg-4 col-md-6 d-flex align-items-stretch" key={element.url}>
 
                 <NewsItem  title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage ? element.urlToImage : "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202203/Capture_2-647x363.png?9uP9rv33QPNTCpKpJphSBCPwauRu7uyI"} newsUrl={element.url}
                   author={element.author ? element.author : "DailyNews"} date={element.publishedAt} />
