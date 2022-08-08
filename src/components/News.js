@@ -109,12 +109,12 @@ export class News extends Component {
             })}
           </div>
           <div className=" container d-flex justify-content-between fixed-bottom mb-5">
-            <button disabled={this.state.page <= 1} type="button" className="btn btn-success" onClick={this.handlePreviousClick}> <i className="fa-solid fa-arrow-left"></i> Previous</button>
-            <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / `${this.props.pageSize}`)} type="button" className="btn btn-success" onClick={this.handleNextClick}>Next <i className="fa-solid fa-arrow-right"></i></button>
+            <button disabled={this.state.page <= 1} type="button" className="btn " onClick={this.handlePreviousClick}> <i className="fa-solid fa-arrow-left"></i> Previous</button>
+            <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / `${this.props.pageSize}`)} type="button" className="btn " onClick={this.handleNextClick}>Next <i className="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
       )
     }
   }
-
+//removed btn-success class from next and previous button
 export default News
